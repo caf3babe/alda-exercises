@@ -22,12 +22,12 @@ int isPalindrom(char* string);
 
 int main() {
 
-    person nichil = {"Megan", 36, {"Main Street 1", "Hollywood", 90069}};
-    person simon = {"Silvester", 64, {"Main Street 1", "Hollywood", 90069}};
-    person mia = {"Arnold", 70, {"Main Street 1", "Hollywood", 90069}};
-    person petra = {"Jennifer", 50, {"Main Street 1", "Hollywood", 90069}};
+    person person1 = {"Megan", 36, {"Main Street 1", "Hollywood", 90069}};
+    person person2 = {"Silvester", 64, {"Main Street 1", "Hollywood", 90069}};
+    person person3 = {"Arnold", 70, {"Main Street 1", "Hollywood", 90069}};
+    person person4 = {"Jennifer", 50, {"Main Street 1", "Hollywood", 90069}};
 
-    person people[SIZE] = {nichil,simon,mia,petra};
+    person people[SIZE] = {person1,person2,person3,person4};
 
     person *result = search("Megan", people, SIZE);
 
