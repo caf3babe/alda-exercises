@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define EPSILON 0.05
+#define EPSILON 0.00000000000000009
 
 // Function Prototypes
 float f(float x);
@@ -16,20 +16,21 @@ float f(float x) {
     return x*x-4;
 }
 
-double bisection(float x1, float x2, float epsilon){
-    float xneu = 0;
-    while (fabs(x2-x1) > epsilon) {
-        xneu = (x1 + x2) / 2;
-        if(f(xneu) == 0){ // wenn zufällig exakt die Nullstelle getroffen wird.
-            return xneu;
-        }
-        if (f(x1) * f(xneu) < 0){
-            x2 = xneu;
-        } else {
-            x1 = xneu;
+//changed bisection implementation
+double bisection(float x1, float x2, float epsilon) {
+    float xneu = (x1 + x2) / 2;
+    if (f(xneu) == 0) {
+        return xneu;
+    } else {
+        if(fabs(x2-x1) > epsilon) {
+            if (f(x1) * f(xneu) < 0) x2 = xneu;
+            else x1 = xneu;
+            //debug
+            //printf("Recursive bisection call with %f,%f\n", x1, x2);
+            //printf("ys are %f,%f\n", f(x1), f(x2));
+            bisection(x1, x2, epsilon);
         }
     }
-    return xneu;
 }
 
 int main(int argc, const char * argv[]) {
