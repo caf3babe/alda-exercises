@@ -18,7 +18,7 @@ typedef struct  {
 person *search(char* name, person* contacts, int size);
 int printPerson(person * p);
 int firstPosOfChar(char* text, char c);
-int isPalindrom(char* string);
+void isPalindrom(char* string);
 
 int main() {
 
@@ -74,9 +74,9 @@ int firstPosOfChar(char* text, char c){
             return i;
         }
     }
-};
+}
 
-int isPalindrom(char* string) {
+void isPalindrom(char* string) {
     int i = 0;
     int j = 0;
     while(string[i] != '\0'){
@@ -93,13 +93,12 @@ int isPalindrom(char* string) {
     string[j] = '\0';
 
     printf("String is ");
-    int k = strlen(string);
+    int k = strlen(string)-1;
     int l=0;
-    for (;string[l]==string[k-1]&&l<=k;l++,k--);
-    if( l==k+1 || strlen(string) == 0){
+    for (;string[l]==string[k]&&l<k;l++,k--);
+    if( l==k || strlen(string) == 0 || k+1==l){
         printf("a palindrom.");
     }else{
         printf("not a palindrom.");
     }
-
-};
+}
