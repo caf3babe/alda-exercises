@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <math.h>
+#define GRIDSIZE 15
 
 typedef struct {
     int x;
     int y;
 }point;
 
-point line[100];
+point line[GRIDSIZE];
 int lineSize = 0;
 
 void harmonicSeries(int n);
@@ -20,25 +21,40 @@ int main(int argc, const char * argv[]) {
     harmonicSeries(n);*/
 
 
-    point p1 = {2,2};
-    point p2 = {2,10};
+    point p1 = {1, 1};
+    point p2 = {12, 15};
 
-    drawLine(p1,p2);
+    line[lineSize] = p1;
+    lineSize++;
+    line[lineSize] = p2;
+    lineSize++;
 
-    for(int k=1; k<10;k++) {
-        for (int i = 0; i <= lineSize; i++) {
-            if (line[i].x == k) {
-                for (int j = 0; j < line[i].y; j++) {
-                    printf(" ");
+    drawLine(p1, p2);
+
+
+    for (int k = 1; k<GRIDSIZE; k++){
+        printf(" --");
+    }
+    printf("\n");
+    for (int x = 1; x < GRIDSIZE; x++) {
+        printf("|");
+        for (int y = 1; y < GRIDSIZE; y++) {
+            printf(" ");
+            char cell = ' ';
+            for (int i = 0; i < lineSize; i++) {
+                if(line[i].x==x && line[i].y==y){
+                    cell = '@';
                 }
-                printf("*");
             }
+            printf("%c",cell);
+            printf(" ");
         }
-        printf("\n");
+        printf("|\n");
     }
 
-
-
+    for (int k = 1; k<GRIDSIZE; k++){
+        printf(" --");
+    }
 }
 
 void harmonicSeries(int n){
@@ -51,10 +67,7 @@ void harmonicSeries(int n){
 };
 
 /*
- * neighbours
- *
- * p[2][2] = 4
- *
+ * neighbours of p[2][2]
  * p[1][1]
  * p[1][2]
  * p[1][3]
@@ -63,13 +76,6 @@ void harmonicSeries(int n){
  * p[3][1]
  * p[3][2]
  * p[3][3]
- * (p1->x == p2->x-1 && p1->y == p2->y-1||
-       p1->x == p2->x-1 && p1->y == p2->y||
-       p1->x == p2->x-1 && p1->y == p2->y-1||
-       p1->x == p2->x-1 && p1->y == p2->y-1||
-       p1->x == p2->x-1 && p1->y == p2->y-1||
-       p1->x == p2->x-1 && p1->y == p2->y-1||
-       p1->x == p2->x-1 && p1->y == p2->y-1)
  * */
 
 void drawLine(point p1, point p2){
