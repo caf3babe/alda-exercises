@@ -15,10 +15,12 @@ void drawLine(point p1, point p2);
 
 int main(int argc, const char * argv[]) {
     int n;
-    /*printf("Geben Sie eine n an um die korrespondierende harmonische Serie anzuzeigen:");
+    printf("Geben Sie eine n an um die korrespondierende harmonische Serie anzuzeigen:");
     scanf("%i",&n);
     printf("H(%i) = ",n);
-    harmonicSeries(n);*/
+    harmonicSeries(n);
+
+    printf("\n");
 
 
     point p1 = {1, 1};
