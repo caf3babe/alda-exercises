@@ -191,11 +191,13 @@ int solve(int row, int col) {
                 if (solve(row + 1, 0)) {
                     return 1;
                 }
-            } else if (col < SIZE)
+            } else if (col < SIZE) {
                 if (solve(row, col + 1)) {
                     return 1;
                 }
+            }
         }
+
         candidateValue++;
     }
     removeValueFromField(row, col);
