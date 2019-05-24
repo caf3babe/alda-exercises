@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "sudoku.h"
+#include "sudoku.c"
 
 int main (int argc, char * const argv[]) {
 	int initial[SIZE][SIZE] = {
@@ -15,9 +16,17 @@ int main (int argc, char * const argv[]) {
 	};
 
 	init(initial);
+	printf("Sudoku to solve: \n");
 	print();
-	solve(0,0);
-	print();
+
+	if(solve(0,0)){
+        print();
+	} else {
+	    printf("No solution found :-( \n");
+	}
+
+    print();
+
 
    return 0;
 }
