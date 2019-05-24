@@ -145,41 +145,6 @@ int getValueFromField(int row, int col) {
 /* Return true if you've found a valid solution for the sudoku. Use the
  * return value to abort the backtracking algorithm if you've found the
  * first solution, otherwise you would search for a possible solution. */
-/*int solve(int row, int col) {
-    if(col == SIZE){
-        if(row >= SIZE){
-            return 1;
-        }
-        col = col%SIZE;
-        row++;
-    }
-
-    if(getValueFromField(row,col) == 0 ){
-        int candidateValue = 1;
-        while(candidateValue <= SIZE){
-            if(candidateValue == SIZE){
-                removeValueFromField(row,col);
-                return FALSE;
-            }
-            if(checkValueInField(candidateValue,row,col)){
-                setValueInField(candidateValue,row,col);
-                if(!solve(row,col+1)){
-                    removeValueFromField(row,col);
-                    return FALSE;
-                }
-            }
-            candidateValue++;
-        }
-    } else {
-        if(!solve(row,col+1)){
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
-	return TRUE;
-}*/
-
 int solve(int row, int col) {
     int candidateValue = 1;
     while (candidateValue <= SIZE) {
