@@ -25,8 +25,5 @@ int main (int argc, char * const argv[]) {
 	    printf("No solution found :-( \n");
 	}
 
-    print();
-
-
    return 0;
 }

@@ -148,7 +148,7 @@ int getValueFromField(int row, int col) {
 /*int solve(int row, int col) {
     if(col == SIZE){
         if(row >= SIZE){
-            return TRUE;
+            return 1;
         }
         col = col%SIZE;
         row++;
@@ -180,44 +180,24 @@ int getValueFromField(int row, int col) {
 	return TRUE;
 }*/
 
-Cell getEmptyCell() {
-    Cell c;
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
-            if (getValueFromField(i, j) == 0) {
-                c.row = i;
-                c.col = j;
-                return c;
-            } else {
-                c.row = 9;
-                c.col = 9;
-            }
-        }
-    }
-}
-
 int solve(int row, int col) {
-    Cell anyCell;
-    if (getValueFromField(row, col) == 0) {
-        int candidateValue = 1;
-        while (candidateValue <= SIZE) {
-            if (checkValueInField(candidateValue, row, col)) {
-                setValueInField(candidateValue, row, col);
-                anyCell = getEmptyCell();
-                if (anyCell.row < 9 && anyCell.col < 9) {
-                    if (!solve(anyCell.row, anyCell.col)) {
-                        //removeValueFromField(row, col);
-                    }
-                } else {
-                    return 0;
+    int candidateValue = 1;
+    while (candidateValue <= SIZE) {
+        if (checkValueInField(candidateValue, row, col)) {
+            setValueInField(candidateValue, row, col);
+            if (col == SIZE - 1 && row == SIZE - 1) {
+                return 1;
+            } else if (row < SIZE && col == SIZE - 1) {
+                if (solve(row + 1, 0)) {
+                    return 1;
                 }
-            }
-            candidateValue++;
+            } else if (col < SIZE)
+                if (solve(row, col + 1)) {
+                    return 1;
+                }
         }
-        if (candidateValue == SIZE + 1) {
-            //removeValueFromField(row, col);
-            return 0;
-        }
+        candidateValue++;
     }
-    return 1;
+    removeValueFromField(row, col);
+    return 0;
 }
