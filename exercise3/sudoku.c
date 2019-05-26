@@ -15,11 +15,6 @@
 int field[SIZE][SIZE];
 int initial[SIZE][SIZE];
 
-typedef struct {
-    int row;
-    int col;
-} Cell;
-
 
 /* Initializes the sudoku array.
  * The field initial keeps the original start value for
@@ -162,7 +157,6 @@ int solve(int row, int col) {
                 }
             }
         }
-
         candidateValue++;
     }
     removeValueFromField(row, col);
