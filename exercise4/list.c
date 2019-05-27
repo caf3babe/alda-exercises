@@ -55,11 +55,15 @@ void print(doubly_linked_list* list) {
 
 void delete(doubly_linked_list* init, int key){
     node* n = find(init,key);
-    n->previous->next = n->next;
-    if(n->next != NULL){
-        n->next->previous = n->previous;
+    if(n != NULL) {
+        if(n->previous != NULL) {
+            n->previous->next = n->next;
+        }
+        if (n->next != NULL) {
+            n->next->previous = n->previous;
+        }
+        free(n);
     }
-    free(n);
 }
 
 

@@ -7,12 +7,12 @@ int main() {
 
     doubly_linked_list *list;
     list = init();
-    insertEnd(list,1,"legage");
-    insertEnd(list,2,"legage");
-    insertEnd(list,3,"legage");
-    insertEnd(list,4,"legage");
+    insertEnd(list,1,"legage1");
+    insertEnd(list,2,"legage2");
+    insertEnd(list,3,"legage3");
+    insertEnd(list,4,"legage4");
     insertEnd(list,12341234,"Das Leben ist so schoen! NICHT.");
-    insertEnd(list,5,"legage");
+    insertEnd(list,5,"legage5");
     print(list);
 
     printf("Searching for node with key 5 in list\n");
