@@ -16,9 +16,7 @@ void insertion_sort(element* stations, int size) {
 }
 
 void selection_sort(element* stations, int size) {
-//void selection_sort(void* data, int nitems, int size, int(*comp)(void *, void*)){
 	// implement either insertion_sort or selection_sort
-
     int currentElement;
     for(int i=0;i<size;i++){
         currentElement = i;
@@ -26,6 +24,28 @@ void selection_sort(element* stations, int size) {
             if(strcmp(stations[currentElement].icao_code,stations[j].icao_code)>0) {
                 currentElement = j;
             }
+        }
+        if(i!=currentElement){
+            element holdElement = stations[i];
+            stations[i] = stations[currentElement];
+            stations[currentElement] = holdElement;
+        }
+    }
+}
+
+int comp(char *a,char *b){
+    return strcmp(a,b);
+}
+
+void selection_sort_comp(void* data, int nitems, int size, int(*comp)(void *, void*)){
+    // implement either insertion_sort or selection_sort
+    element *stations = (element*)data;
+    int currentElement;
+    for(int i=0;i<nitems;i++){
+        currentElement = i;
+        for(int j=i;j<nitems;j++){
+            if((int)comp(&stations[currentElement],&stations[j])>0)
+                currentElement = j;
         }
         if(i!=currentElement){
             element holdElement = stations[i];
