@@ -1,0 +1,19 @@
+﻿1.
+w1,w2 = 10
+w1,w3,w4,w5 = 12
+w2,w3,w5 = 14   <--- beste Lösung
+w2,w3,w4 = 13
+2. 
+typedef struct{
+    char character;
+    int *next;
+
+}node;
+
+elemente einfügen/löschen
+suche von elementen
+sortieren von elementen
+
+3. 
+möglichkeiten entferne die zulassen die liste zu beginn oder mitten drin zu manipulieren.
+einen pointer für das letzte element erstellen. nach lifo

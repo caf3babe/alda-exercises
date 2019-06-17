@@ -1,0 +1,87 @@
+1.)
+Selection Sort:
+{4,9,1,3,15,11,8,2}
+Iteration 1: Nimm die Zahl im Index 0.
+Vergleiche jene Zahl mit der Zahl im nächsten Index. Wenn sie größer ist, dann vergleiche weiter. Findest du eine kleinere so merke sie dir und beginne den Satz von vorn.
+Am Ende des Durchlaufs hast du die Kleinste Zahl gefunden. Tausche diese mit Index 0.
+Führe dies für jeden Index durch.
+{1,9,4,3,15,11,8,2}
+Iteration 2:
+Index 1:
+{1,2,4,3,15,11,8,9}
+Iteration 3:
+Index 2:
+{1,2,3,4,15,11,8,9}
+Iteration 4:
+Index 3:
+{1,2,3,4,15,11,8,9}
+Iteration 5:
+Index 4:
+{1,2,3,4,8,11,15,9}
+Iteration 6:
+Index 5:
+{1,2,3,4,8,9,15,11}
+Iteration 7:
+Index 6:
+{1,2,3,4,8,9,11,15}
+Iteration 8:
+Index 7:
+{1,2,3,4,8,9,11,15}
+Laufzeit n²
+
+Insertion Sort:
+{4,9,1,3,15,11,8,2}
+Linke ist die sortierte Seite.
+Index 0 ist bereits sortiert.
+Iteration 1:
+Prüfen des Wertes in Index 1. Vergleiche diesen mit sortierter Seite beginnend bei Index 0. Wenn kleiner als geprüfte Index dann in dieser Stelle einfügen sonst nichts unternehmen.
+Analog alle nächsten Iterationen.
+{4,9,1,3,15,11,8,2}
+Iteration 2:
+Index 2
+{1,4,9,3,15,11,8,2}
+Iteration 3:
+Index 3
+{1,3,4,9,15,11,8,2}
+Iteration 4:
+Index 4
+{1,3,4,9,15,11,8,2}
+Iteration 5:
+Index 5
+{1,3,4,9,11,15,8,2}
+Iteration 6:
+Index 6
+{1,3,4,8,9,11,15,2}
+Iteration 7:
+Index 7
+{1,2,3,4,8,9,11,15}
+Laufzeit n²
+
+2.)
+Quick Sort
+{4,9,1,3,15,11,8,2}
+Wähle (zufällig oder gezielt) Pivotelement. Sortiere größere Zahlen rechts von Pivot, kleiner links von Pivot. Abbruch wenn nach Pivotwahl kein Element zum Sortieren vorhanden.
+1 Pivot = 4
+{2,3,1,  4  ,9,15,11,8}
+2 Pivots: Pivot1 = 2, Pivot2 = 9
+{1, 2 ,3,  4  ,8, 9, 11,15}
+4 Pivots: Pivot1 = 1, Pivot2 = 3, Pivot3 = 8, Pivot4 = 11]}
+{1, 2, 3, 4, 8, 9, 11, 15}
+1 Pivot: 15
+{1, 2, 3, 4, 8, 9, 11, 15}
+Laufzeit Average = n*log(n)
+Laufzeit Worts-Case = n²
+
+Merge Sort
+Divide and qonquer (Teile und hersche! ^^)
+Man Teile das zu sortierende Array in seine Elmentarteile und füge jene sortiert zusammen. Vorgang:
+       {4,9,1,3,15,11,8,2}
+      {4,9,1,3 , 15,11,8,2}
+    {4,9 , 1,3 , 15,11 , 8,2}
+{4 , 9 , 1 , 3 , 15 , 11 , 8 , 2}
+    {4,9 , 1,3 , 11,15 , 2,8}
+	  {1,3,4,9 , 2,8,11,15}
+	   {1,2,3,4,8,9,11,15}
+
+3.) a und f
+Werden benötigt um zur Laufzeit Funktionen zu überschreiben. Das bietet den Vorteil Code zu sparen zum Beispiel.
