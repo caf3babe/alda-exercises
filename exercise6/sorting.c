@@ -33,24 +33,26 @@ void selection_sort(element* stations, int size) {
     }
 }
 
-int comp(char *a,char *b){
-    return strcmp(a,b);
+int comp(void *a,void *b){
+    element *c = (element*)a;
+    element *d = (element*)b;
+    return strcmp(c->station_name,d->station_name);
 }
 
 void selection_sort_comp(void* data, int nitems, int size, int(*comp)(void *, void*)){
-    // implement either insertion_sort or selection_sort
-    element *stations = (element*)data;
-    int currentElement;
+    char *datachar = (char*)data;
+    char *temp = (char*)malloc(sizeof(size));
+    int minKey;
     for(int i=0;i<nitems;i++){
-        currentElement = i;
+        minKey = i;
         for(int j=i;j<nitems;j++){
-            if((int)comp(&stations[currentElement],&stations[j])>0)
-                currentElement = j;
+            if(comp(&datachar[minKey*size],&datachar[j*size])>0)
+                minKey = j;
         }
-        if(i!=currentElement){
-            element holdElement = stations[i];
-            stations[i] = stations[currentElement];
-            stations[currentElement] = holdElement;
+        if(i!=minKey){
+            memcpy(&datachar[minKey*size],temp,size);
+            memcpy(&datachar[i*size],&datachar[minKey*size],size);
+            memcpy(temp,&datachar[minKey*size],size);
         }
     }
 }
@@ -60,19 +62,19 @@ void quick_sort(element* stations, int left, int right) {
 }
 
 void merge_sort(element* stations, element* tmpStations, int left, int right) {
-	// implement either quick_sort or merge_sort
-	// tmpStations corresponds to the array B in the lecture slides
-	if(left < right){
-	    int middle = left+(right-left)/2;
-	    merge_sort(stations,tmpStations,left,middle);
-	    merge_sort(stations,tmpStations,middle+1,right);
+    // implement either quick_sort or merge_sort
+    // tmpStations corresponds to the array B in the lecture slides
+    if(left < right){
+        int middle = left+(right-left)/2;
+        merge_sort(stations,tmpStations,left,middle);
+        merge_sort(stations,tmpStations,middle+1,right);
 
         int i,j,k;
         i = left;
         j = middle+1;
         k = 0;
         while(i<=middle && j<= right) {
-            if(strcmp(stations[i].icao_code,stations[j].icao_code)<0)
+            if(strcmp(stations[i].station_name,stations[j].station_name)<0)
                 tmpStations[k++]=stations[i++];
             else
                 tmpStations[k++]=stations[j++];
@@ -86,7 +88,7 @@ void merge_sort(element* stations, element* tmpStations, int left, int right) {
         for(i=left,j=0;i<=right;i++,j++) {
             stations[i] = tmpStations[j];
         }
-	}
+    }
 }
 
 void print_stations(element* stations, int size) {
@@ -149,7 +151,7 @@ int main(int argc, char** argv) {
 	print_stations(stations, size);*/
 
 
-	// now lets try selection sort
+	/*// now lets try selection sort
 	printf("Sorting with selection sort:\n\n");
 	// read the station data from file
 	readfile(stations, &size);
@@ -158,19 +160,29 @@ int main(int argc, char** argv) {
 	selection_sort(stations, size);
 	// print the result
 	print_stations(stations, size);
+	*/
 
 	/*
-
-	// now lets try merge sort
-	printf("Sorting with merge sort:\n\n");
+	// now lets try selection sort with a custom comparator
+	printf("Sorting with selection sort with a custom comparator:\n\n");
 	// read the station data from file
 	readfile(stations, &size);
+	//declare function pointer
 	// sort the station names
-	merge_sort(stations, tmpStations, 0, size-1);
+	selection_sort_comp(stations, size, sizeof(element),comp);
 	// print the result
 	print_stations(stations, size);
 	*/
-	
+
+	// now lets try merge sort
+	printf("Sorting with merge sort:\n\n");
+    // read the station data from file
+    readfile(stations, &size);
+    // sort the station names
+    merge_sort(stations, tmpStations, 0, size-1);
+    // print the result
+    print_stations(stations, size);
+
 	/*// now lets try quick sort
 	printf("Sorting with quick sort:\n\n");
 	// read the station data from file
