@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/exercise7.dir/main.c.obj"
+  "CMakeFiles/exercise7.dir/bin_baum.c.obj"
   "exercise7.pdb"
   "exercise7.exe"
   "exercise7.exe.manifest"

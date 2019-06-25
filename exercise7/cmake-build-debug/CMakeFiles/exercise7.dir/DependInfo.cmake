@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/nichil/repo/AldaExercises/exercise7/main.c" "C:/Users/nichil/repo/AldaExercises/exercise7/cmake-build-debug/CMakeFiles/exercise7.dir/main.c.obj"
+  "C:/Users/nichil/repo/AldaExercises/exercise7/bin_baum.c" "C:/Users/nichil/repo/AldaExercises/exercise7/cmake-build-debug/CMakeFiles/exercise7.dir/bin_baum.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

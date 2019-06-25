@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -56,27 +56,27 @@ include CMakeFiles/exercise7.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/exercise7.dir/flags.make
 
-CMakeFiles/exercise7.dir/main.c.obj: CMakeFiles/exercise7.dir/flags.make
-CMakeFiles/exercise7.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\nichil\repo\AldaExercises\exercise7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/exercise7.dir/main.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\exercise7.dir\main.c.obj   -c C:\Users\nichil\repo\AldaExercises\exercise7\main.c
+CMakeFiles/exercise7.dir/bin_baum.c.obj: CMakeFiles/exercise7.dir/flags.make
+CMakeFiles/exercise7.dir/bin_baum.c.obj: ../bin_baum.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\nichil\repo\AldaExercises\exercise7\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/exercise7.dir/bin_baum.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\exercise7.dir\bin_baum.c.obj   -c C:\Users\nichil\repo\AldaExercises\exercise7\bin_baum.c
 
-CMakeFiles/exercise7.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/exercise7.dir/main.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\nichil\repo\AldaExercises\exercise7\main.c > CMakeFiles\exercise7.dir\main.c.i
+CMakeFiles/exercise7.dir/bin_baum.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/exercise7.dir/bin_baum.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\nichil\repo\AldaExercises\exercise7\bin_baum.c > CMakeFiles\exercise7.dir\bin_baum.c.i
 
-CMakeFiles/exercise7.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/exercise7.dir/main.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\nichil\repo\AldaExercises\exercise7\main.c -o CMakeFiles\exercise7.dir\main.c.s
+CMakeFiles/exercise7.dir/bin_baum.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/exercise7.dir/bin_baum.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-W\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\nichil\repo\AldaExercises\exercise7\bin_baum.c -o CMakeFiles\exercise7.dir\bin_baum.c.s
 
 # Object files for target exercise7
 exercise7_OBJECTS = \
-"CMakeFiles/exercise7.dir/main.c.obj"
+"CMakeFiles/exercise7.dir/bin_baum.c.obj"
 
 # External object files for target exercise7
 exercise7_EXTERNAL_OBJECTS =
 
-exercise7.exe: CMakeFiles/exercise7.dir/main.c.obj
+exercise7.exe: CMakeFiles/exercise7.dir/bin_baum.c.obj
 exercise7.exe: CMakeFiles/exercise7.dir/build.make
 exercise7.exe: CMakeFiles/exercise7.dir/linklibs.rsp
 exercise7.exe: CMakeFiles/exercise7.dir/objects1.rsp

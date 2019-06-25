@@ -38,10 +38,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = C:\Users\nichil\repo\AldaExercises\exercise7\cmake-build-debu
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2019.1.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2019.1.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -122,32 +122,32 @@ exercise7/fast:
 	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/build
 .PHONY : exercise7/fast
 
-main.obj: main.c.obj
+bin_baum.obj: bin_baum.c.obj
 
-.PHONY : main.obj
+.PHONY : bin_baum.obj
 
 # target to build an object file
-main.c.obj:
-	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/main.c.obj
-.PHONY : main.c.obj
+bin_baum.c.obj:
+	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/bin_baum.c.obj
+.PHONY : bin_baum.c.obj
 
-main.i: main.c.i
+bin_baum.i: bin_baum.c.i
 
-.PHONY : main.i
+.PHONY : bin_baum.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/main.c.i
-.PHONY : main.c.i
+bin_baum.c.i:
+	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/bin_baum.c.i
+.PHONY : bin_baum.c.i
 
-main.s: main.c.s
+bin_baum.s: bin_baum.c.s
 
-.PHONY : main.s
+.PHONY : bin_baum.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/main.c.s
-.PHONY : main.c.s
+bin_baum.c.s:
+	$(MAKE) -f CMakeFiles\exercise7.dir\build.make CMakeFiles/exercise7.dir/bin_baum.c.s
+.PHONY : bin_baum.c.s
 
 # Help Target
 help:
@@ -158,9 +158,9 @@ help:
 	@echo ... exercise7
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... bin_baum.obj
+	@echo ... bin_baum.i
+	@echo ... bin_baum.s
 .PHONY : help
 
 
