@@ -141,8 +141,8 @@ int main(int argc, char** argv) {
 	stations = (element*)malloc(sizeof(element)*6000);
 	tmpStations = (element*)malloc(sizeof(element)*6000);
 	
-	/*
-	// now lets try insertion sort
+
+	/*// now lets try insertion sort
 	printf("Sorting with insertion sort:\n\n");
 	// read the station data from file
 	readfile(stations, &size);
@@ -152,7 +152,7 @@ int main(int argc, char** argv) {
 	print_stations(stations, size);*/
 
 
-	/*
+
 	// now lets try selection sort
 	printf("Sorting with selection sort:\n\n");
 	// read the station data from file
@@ -162,10 +162,10 @@ int main(int argc, char** argv) {
 	selection_sort(stations, size);
 	// print the result
 	print_stations(stations, size);
-	*/
 
 
-	// now lets try selection sort with a custom comparator
+
+	/*// now lets try selection sort with a custom comparator
 	printf("Sorting with selection sort with a custom comparator:\n\n");
 	// read the station data from file
 	readfile(stations, &size);
@@ -173,10 +173,10 @@ int main(int argc, char** argv) {
 	// sort the station names
 	selection_sort_comp(stations, size, sizeof(element),comp);
 	// print the result
-	print_stations(stations, size);
+	print_stations(stations, size);*/
 
 
-	/*
+
 	// now lets try merge sort
 	printf("Sorting with merge sort:\n\n");
     // read the station data from file
@@ -185,7 +185,7 @@ int main(int argc, char** argv) {
     merge_sort(stations, tmpStations, 0, size-1);
     // print the result
     print_stations(stations, size);
-    */
+
 
 	/* now lets try quick sort
 	printf("Sorting with quick sort:\n\n");

@@ -144,7 +144,7 @@ int main(void) {
 
     // Variablen fuer den Baum anlegen
     biTree binaryTree = {0, NULL};
-    char name[50];
+    char *name;
     int personalnumber;
 
     printf("============================================================================================================\n");
@@ -159,28 +159,21 @@ int main(void) {
     printf("Wie viele Personen willst Du eingeben? \n");
     scanf("%i", &count);
     while (count != 0) {
+        name = malloc(sizeof(char)*200);
         printf("Name:");
         scanf("%s", name);
-
         if (strcmp(name, "done") == 0) {
             break;
         }
-
         printf("Personalnummer:");
         scanf("%i", &personalnumber);
-
         if (lookup(binaryTree.root, personalnumber) != NULL) {
             printf("Personalnummer ist bereits vorhanden\n");
             continue;
         }
-
         insert(&binaryTree, personalnumber, name);
         count--;
     }
-
-    insert(&binaryTree, 123123, "Petra");
-    insert(&binaryTree, 321321, "Nichil");
-    insert(&binaryTree, 456456, "Simon");
 
     // Ausgabe des Baumes in Inline-Notation
     printf("Ausgabe des Baumes in Inorder Notation\n");
@@ -207,5 +200,16 @@ int main(void) {
     // Suchen nach Datensaetzen (laeuft in einer Schleife)
     // wie in der Aufgabenstellung beschrieben
 
+    while(1){
+        int id;
+        printf("ID zum Suchen eingeben:\n");
+        scanf("%i",&id);
+        node *found = lookup(binaryTree.root,id);
+        if(found != NULL){
+            printf("%s\n",found->data);
+        } else {
+            printf("Nothing found\n");
+        }
+    }
     return 0;
 }
