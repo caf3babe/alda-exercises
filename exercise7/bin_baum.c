@@ -204,6 +204,9 @@ int main(void) {
         int id;
         printf("ID zum Suchen eingeben:\n");
         scanf("%i",&id);
+        if(id==0){
+            break;
+        }
         node *found = lookup(binaryTree.root,id);
         if(found != NULL){
             printf("%s\n",found->data);
