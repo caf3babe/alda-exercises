@@ -71,22 +71,41 @@ node *insert(biTree *t, int key, char *data) {
 
 // Rekursive Funktion zum Ausgeben des Baumes in Inline-Notation
 void printTreeInline(node *start) {
-    if(start->left != NULL) {
+    if (start->left != NULL) {
         printTreeInline(start->left);
     }
-    printf("%d",start->key);
+    printf("%d", start->key);
     printf(": ");
-    printf("%s",start->data);
+    printf("%s", start->data);
     printf(", ");
-    if(start->right != NULL) {
+    if (start->right != NULL) {
         printTreeInline(start->right);
     }
 }
 
 // Funktion zum ebenenweise Ausgeben des Baumes
-void printTreeLevelOrder(node *start) {
-
+void printGivenLevel(node *root, int level) {
+    if (root == NULL)
+        return;
+    if (level == 1) {
+        printf("%d", root->key);
+        printf(": ");
+        printf("%s", root->data);
+        printf(", ");
+    } else if (level > 1) {
+        printGivenLevel(root->left, level - 1);
+        printGivenLevel(root->right, level - 1);
+    }
 }
+
+void printTreeLevelOrder(node *root) {
+    int h = treeDepth(root);
+    int i;
+    for (i = 1; i <= h; i++)
+        printGivenLevel(root, i);
+}
+
+/* Print nodes at a given level */
 
 // Suchen eines Knotens anhand des Keys
 node *lookup(node *start, int key) {
@@ -118,17 +137,13 @@ int treeDepth(node *start) {
     }
 }
 
-void readInput(){
-
-}
-
 
 // Hauptprogramm
 
 int main(void) {
 
     // Variablen fuer den Baum anlegen
-    biTree binaryTree = {0,NULL};
+    biTree binaryTree = {0, NULL};
     char name[50];
     int personalnumber;
 
@@ -142,8 +157,8 @@ int main(void) {
     // und Einfügen in den Baum mittels insert()
     int count;
     printf("Wie viele Personen willst Du eingeben? \n");
-    scanf("%i",&count);
-    while(count != 0) {
+    scanf("%i", &count);
+    while (count != 0) {
         printf("Name:");
         scanf("%s", name);
 
@@ -177,7 +192,7 @@ int main(void) {
     // Ausgabe der Baumtiefe
     printf("Ausgabe der Baumtiefe\n");
     printf("------------------------------------------------------------------------------------------------------------\n");
-    printf("%d\n",treeDepth(binaryTree.root));
+    printf("%d\n", treeDepth(binaryTree.root));
     printf("------------------------------------------------------------------------------------------------------------\n");
     // Ausgabe von Minimum- und Maximum-Key
 
