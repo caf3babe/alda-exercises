@@ -1,0 +1,16 @@
+1. b-baum ist kombination von suchbaum u. binärbaum.
+ein knoten hat max 2 child-knoten. jeder knoten hat schlüssel. links kleiner als parent, rechts größer als parent.
+
+2. 
+void runTree(node* root){
+   if (root == null) return;
+   runTree (root->left);
+   runTree (root->right);
+   printf ("%c ", root->key);
+}
+
+3.
+
+4. 
+Preorder-Traversierungsstrategie 
+Diesmal mit Preorder
