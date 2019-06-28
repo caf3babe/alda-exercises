@@ -1,0 +1,20 @@
+1)
+.)
+-ein Graph bezeichnet man sobald zwei oder mehr Knoten durch ein oder mehrere Kanten verbunden sind.
+- es gibt ungerichtete und gerichtete Graphen
+- und es gibt ungewichtete wie gewichtete Graphen
+- Kanten können von und auf den gleichen Knoten verweisen.
+.)
+Verkehrsnetze, Wasserleitungen, WWW, Betriebssysteme, ...
+.)
+- Graph Verbindungen möglich die in Bäumen nicht möglich sind.
+- Ein Baumknoten hat immer nur zwei Childknoten.
+- Ein Graphknoten kann mit mehr als ein andern Graphknoten verbunden sein.
+- Beziehungen sind unterschiedlich.
+2)
+Baumkante - alle Kanten des Graphen
+Kreuzkante - wenn eine Kante aus einem andere Graph zu einem Knoten 
+Vorwärtskante - eine Kante die vom vorherhingen Knoten zum nächsten Knoten führt
+Rückwärtskante - eine Kante die vom nächsten Knoten zum vorherigen Knoten führt
+3)
+
