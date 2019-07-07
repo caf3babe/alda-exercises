@@ -20,6 +20,7 @@ typedef struct _node {
 
 // structure for a grpah defined by an adjacency matrix
 typedef struct _graph {
+    int time;
     int numNodes;
     node nodes[MAX_NODES];
     int adjMatrix[MAX_NODES][MAX_NODES];
@@ -30,6 +31,8 @@ typedef struct _graph {
 void initGraph(graph *g);
 int addNode(graph *g, char *name);
 void topologySearch(graph *g);
+int getWhiteNode(graph *g);
+void goDeep(int n, graph *g);
 
 
 // initialize graph
@@ -37,6 +40,7 @@ void initGraph(graph *g) {
     int i, j;
     g->numNodes = 0;
     for (i = 0; i < MAX_NODES; i++) {
+        g->time = 0;
         g->nodes[i].name = NULL;
         g->nodes[i].color = WHITE;
         g->nodes[i].startTime = 0;
@@ -52,6 +56,7 @@ void initGraph(graph *g) {
 void resetGraph(graph *g) {
     int i;
     for (i = 0; i < g->numNodes; i++) {
+        g->time = 0;
         g->nodes[i].color = WHITE;
         g->nodes[i].startTime = 0;
         g->nodes[i].endTime = 0;
@@ -83,8 +88,43 @@ int addNode(graph *g, char *name) {
 
 void topologySearch(graph *g) {
     // TODO: implement
+    int whiteNode = getWhiteNode(g);
+
+    while(whiteNode!=-1) {
+        goDeep(whiteNode, g);
+        whiteNode = getWhiteNode(g);
+    }
+    printf("Total time: %d\n", g->time);
 }
 
+int getWhiteNode(graph *g){
+    for(int i = 0;i < g->numNodes; i++){
+        if(g->nodes[i].color==WHITE){
+            g->nodes[i].color==GRAY;
+            return i;
+        }
+    }
+    return -1;
+}
+
+void goDeep(int n, graph *g) {
+    g->nodes[n].startTime = ++g->time;
+    // loop over adjacency matrix and see if there is a edge to another node
+    // if so we call recursively goDeep function
+    for(int i = 0; i < g->numNodes; i++){
+        if(g->adjMatrix[n][i]==1){
+            if(g->nodes[i].color == WHITE) {
+                g->nodes[i].color = GRAY;
+                goDeep(i, g);
+            }
+        }
+    }
+    // if loop is over no edge to another node
+    // that is why we set color black and return from this function call
+    g->nodes[n].color = BLACK;
+    g->nodes[n].endTime = ++g->time;
+    return;
+}
 
 int main() {
     FILE *fp;
@@ -100,7 +140,7 @@ int main() {
     initGraph(&g);
 
     // open the file
-    fp = fopen("Makefile", "r");
+    fp = fopen("../Makefile", "r");
     if (fp == NULL) {
         printf("Cannot open Makefile!!!\n");
         return -1;
@@ -134,8 +174,23 @@ int main() {
 
     fclose(fp);
 
+    printf("\n");
     // DFS search
     topologySearch(&g);
+
+    for(int i = 0; i < g.numNodes; i++){
+        printf("%s has start %d end %d\n",g.nodes[i].name,g.nodes[i].startTime,g.nodes[i].endTime);
+    }
+
+    // output for drawing graph https://csacademy.com/app/graph_editor/
+    /*printf("\n");
+    for(int i = 0; i < g.numNodes; i++){
+        for(int j = 0; j < g.numNodes; j++){
+            if(g.adjMatrix[i][j]==1){
+                printf("%s %s \n",g.nodes[i].name,g.nodes[j].name);
+            }
+        }
+    }*/
 
     return 0;
 }
